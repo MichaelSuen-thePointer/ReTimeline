@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "ReTimeline",
+    "description": "重新组织你的知乎时间线",
+    "version": "0.1",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "重新组织你的时间线"
+    },
+    "permissions": [
+        "activeTab",
+        "cookies",
+        "*://*.zhihu.com/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "*://*.zhihu.com/*"
+            ],
+            "js": [
+                "retimeline.js"
+            ]
+        }
+    ]
+}
